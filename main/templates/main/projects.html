@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1><i class="fas fa-briefcase"></i> My Projects</h1>
+    <ul>
+        <li><strong>Basic Football APP:</strong> A mobile application designed to track team stats, and football teams locations.</li>
+        <li><strong>Django CV Site:</strong> This very portfolio site, built with Django and custom dark UI.</li>
+    </ul>
+
+    <!-- Yeni Eklenen Kutucuk Tasarımı -->
+    <section class="projects-section">
+        <h2 style="margin-top: 50px;">Project Gallery</h2>
+        <div class="project-container">
+            <div class="project-box" onclick="location.href='/projects/cvsite';">
+                <img src="{% static 'files/images/cvicon.png' %}" alt="CV Site">
+                <div class="overlay">
+                    <h3>CV Portfolio Website</h3>
+                </div>
+            </div>
+
+            <div class="project-box" onclick="location.href='/projects/footballapp';">
+                <img src="{% static 'files/images/footballicon.png' %}" alt="Football App">
+                <div class="overlay">
+                    <h3>Football App</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

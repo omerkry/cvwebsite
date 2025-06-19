@@ -1,0 +1,58 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <h1><i class="fa-solid fa-envelope"></i> Contact Me</h1>
+
+    <ul>
+        <li><strong>Email:</strong> omercankarayemisoglu@gmail.com</li>
+        <li><strong>Phone:</strong> +90 507 498 9279</li>
+    </ul>
+
+    <h2 style="margin-top: 2rem;">Send me a message</h2>
+
+    <form method="post" class="contact-form" style="margin-top: 1rem;">
+        {% csrf_token %}
+
+        <div class="input-with-icon" style="margin-bottom: 1.5rem;">
+            <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label><br>
+            <i class="fa-solid fa-user"></i>
+            {{ form.name }}
+        </div>
+
+        <div class="input-with-icon" style="margin-bottom: 1.5rem;">
+            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label><br>
+            <i class="fa-solid fa-envelope"></i>
+            {{ form.email }}
+        </div>
+
+        <div class="input-with-icon" style="margin-bottom: 1.5rem;">
+            <label for="{{ form.subject.id_for_label }}">{{ form.subject.label }}</label><br>
+            <i class="fa-solid fa-circle-info"></i>
+            {{ form.subject }}
+        </div>
+
+        <div class="input-with-icon" style="margin-bottom: 1.5rem;">
+            <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label><br>
+            <i class="fa-solid fa-comment-dots"></i>
+            {{ form.message }}
+        </div>
+
+        <button type="submit" class="download-btn">
+            <i class="fa-solid fa-paper-plane"></i> Send
+        </button>
+    </form>
+
+    {% if success %}
+        <p style="color: #64ffda; margin-top: 1rem;">Your message has been sent successfully!</p>
+    {% endif %}
+
+    <h2 style="margin-top: 3rem;">Find me on:</h2>
+    <div class="social-icons" style="display: flex; gap: 1.5rem; margin-top: 1rem;">
+        <a href="https://www.linkedin.com/in/ömercan-karayemişoğlu-803183233/" target="_blank" style="color: #0A66C2; font-size: 2rem;">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/omerkry" target="_blank" style="color: #f5f5f5; font-size: 2rem;">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+{% endblock %}

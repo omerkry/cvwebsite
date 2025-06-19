@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1 style="animation: fadeInDown 1s ease-out;"><i class="fa-solid fa-user"></i> About Me</h1>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; margin-top: 2rem; animation: fadeIn 2s ease-in;">
+        <!-- Profil resmi -->
+        <div>
+            <img src="{% static 'files/images/cvresmi.png' %}" alt="My Photo" style="
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                border: 4px solid #64ffda;
+                box-shadow: 0 0 15px rgba(100, 255, 218, 0.4);
+                object-fit: cover;
+            ">
+        </div>
+
+        <!-- Açıklama -->
+        <div style="max-width: 500px; text-align: left;">
+            <p style="animation: fadeIn 2s ease-in;">Hello! I’m <strong style="color:#64ffda">Ömercan Karayemişoğlu</strong>, a passionate software developer focused on backend and mobile technologies.</p>
+            <p style="animation: fadeIn 2.5s ease-in;">This site is my personal portfolio where I showcase my skills, education, and experience.</p>
+        </div>
+    </div>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+{% endblock %}
