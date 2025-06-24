@@ -3,16 +3,30 @@
 
 {% block content %}
     <h1><i class="fas fa-briefcase"></i> My Projects</h1>
+
+    <!-- Statik olarak yazılmış projeler -->
     <ul>
         <li><strong>Basic Football APP:</strong> A mobile application designed to track team stats, and football teams locations.</li>
         <li><strong>Django CV Site:</strong> This very portfolio site, built with Django and custom dark UI.</li>
     </ul>
 
-    <!-- Yeni Eklenen Kutucuk Tasarımı -->
+    <!-- Admin panelden eklenen projeler -->
+    {% if projects %}
+        <h2 style="margin-top: 40px;">Other Projects</h2>
+        <ul>
+            {% for project in projects %}
+                <li><strong>{{ project.title }}:</strong> {{ project.description }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- Statik kutucuklar (görselli) -->
     <section class="projects-section">
         <h2 style="margin-top: 50px;">Project Gallery</h2>
         <div class="project-container">
-            <div class="project-box" onclick="location.href='/projects/cvsite';">
+
+            <!-- Statik kutucuklar -->
+            <div class="project-box" onclick="window.open('https://github.com/omerkry/django_project', '_blank');">
                 <img src="{% static 'files/images/cvicon.png' %}" alt="CV Site">
                 <div class="overlay">
                     <h3>CV Portfolio Website</h3>
@@ -25,6 +39,17 @@
                     <h3>Football App</h3>
                 </div>
             </div>
+
+            <!-- Admin panelden gelen projeler için varsayılan görselli kutucuk -->
+            {% for project in projects %}
+                <div class="project-box" onclick="window.open('{{ project.link }}', '_blank');">
+                    <img src="{% static 'files/images/default.png' %}" alt="{{ project.title }}">
+                    <div class="overlay">
+                        <h3>{{ project.title }}</h3>
+                    </div>
+                </div>
+            {% endfor %}
+
         </div>
     </section>
 {% endblock %}

@@ -17,10 +17,20 @@
             ">
         </div>
 
-        <!-- Açıklama -->
+        <!-- Açıklama (veritabanından dinamik içerik) -->
         <div style="max-width: 500px; text-align: left;">
-            <p style="animation: fadeIn 2s ease-in;">Hello! I’m <strong style="color:#64ffda">Ömercan Karayemişoğlu</strong>, a passionate software developer focused on backend and mobile technologies.</p>
-            <p style="animation: fadeIn 2.5s ease-in;">This site is my personal portfolio where I showcase my skills, education, and experience.</p>
+            {% if about %}
+                <p style="animation: fadeIn 2s ease-in;">{{ about.content|linebreaks }}</p>
+            {% else %}
+                <p style="animation: fadeIn 2s ease-in;">About me content has not been added yet.</p>
+            {% endif %}
+
+            <!-- CV İndirme Butonu -->
+            <div style="margin-top: 25px; text-align: left;">
+                <a href="{% static 'files/CV.pdf' %}" class="download-btn" target="_blank" download>
+                    <i class="fa-solid fa-download"></i> Download My CV
+                </a>
+            </div>
         </div>
     </div>
 

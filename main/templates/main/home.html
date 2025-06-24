@@ -1,6 +1,21 @@
 {% extends 'main/base.html' %}
+{% load static %}
 
 {% block content %}
-    <h1><i class="fas fa-home"></i> Welcome to My CV Website</h1>
-    <p>This site contains my projects, skills, education, and more. Feel free to explore!</p>
+<section class="hero-section">
+    <div class="hero-content">
+        <img src="{% static 'files/images/profile.jpeg' %}" alt="Profile Photo" class="hero-profile">
+
+        <h1><i class="fas fa-home"></i> Welcome to My CV Website</h1>
+        <p class="hero-subtitle">
+            I'm Ömercan Karayemişoğlu, a backend and mobile-focused developer.
+            This site showcases my projects, skills, and professional background.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="/projects/" class="cta-btn">View Projects</a>
+            <a href="/contact/" class="cta-btn">Contact Me</a>
+        </div>
+    </div>
+</section>
 {% endblock %}

@@ -1,15 +1,27 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-    <h1><i class="fas fa-building"></i> Experience</h1>
-    <ul>
-        <li>
-            <strong>Software Intern – İSPARK IT Department</strong><br>
-            July 2025 (ongoing) – Working remotely on Python and Django-based internal systems.
-        </li>
-        <li>
-            <strong>Student Assistant – Piri Reis University</strong><br>
-            2024 – Managed department presentations and student guidance.
-        </li>
-    </ul>
+<h1><i class="fas fa-building"></i> Experience</h1>
+
+<div class="timeline">
+
+    <!-- İSPARK -->
+    <div class="timeline-item">
+        <div class="timeline-date">June 2025 – July 2025</div>
+        <div class="timeline-content">
+            <h3>💻 Software Intern – İSPARK IT Department</h3>
+            <p>Worked remotely on Python and Django-based internal systems.</p>
+        </div>
+    </div>
+
+    <!-- Asistanlık -->
+    <div class="timeline-item">
+        <div class="timeline-date">June 2023 – September 2023</div>
+        <div class="timeline-content">
+            <h3>🎓 Student Assistant – Piri Reis University</h3>
+            <p>Managed department presentations and student guidance.</p>
+        </div>
+    </div>
+
+</div>
 {% endblock %}

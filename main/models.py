@@ -47,3 +47,9 @@ class ContactMessage(models.Model):
     def __str__(self):
         return f"Message from {self.name} at {self.created_at.strftime('%Y-%m-%d %H:%M')}"
 
+
+class About(models.Model):  # ✅ Dışarıya alındı
+    content = models.TextField()
+
+    def __str__(self):
+        return "About Page Content"

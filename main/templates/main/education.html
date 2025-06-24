@@ -1,16 +1,28 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
- <h1><i class="fas fa-graduation-cap"></i> Education</h1>
-    <ul>
-        <li>
-            <strong>Piri Reis University – Information Systems Engineering</strong><br>
-            2021 – Present<br>
-            GPA: 3.02 / 4.00
-        </li>
-        <li>
-            <strong>Halide Edip Adıvar Anatolian High School – Science Program</strong><br>
-            Graduated in 2021
-        </li>
-    </ul>
+<h1><i class="fas fa-graduation-cap"></i> Education</h1>
+
+<div class="timeline">
+
+    <!-- Üniversite -->
+    <div class="timeline-item">
+        <div class="timeline-date">2021 – Present</div>
+        <div class="timeline-content">
+            <h3>🎓 Piri Reis University</h3>
+            <p><strong>Information Systems Engineering</strong></p>
+            <p>GPA: 3.02 / 4.00</p>
+        </div>
+    </div>
+
+    <!-- Lise -->
+    <div class="timeline-item">
+        <div class="timeline-date">Graduated 2021</div>
+        <div class="timeline-content">
+            <h3>🏫 Halide Edip Adıvar Anatolian High School</h3>
+            <p><strong>Science Program</strong></p>
+        </div>
+    </div>
+
+</div>
 {% endblock %}

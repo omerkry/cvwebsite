@@ -2,35 +2,65 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.conf import settings
 from .forms import ContactForm
+from .models import Project, About, Skill, Experience, Education, ContactMessage  # ContactMessage eklendi
 
+from rest_framework import viewsets
+from .serializers import (
+    ProjectSerializer,
+    SkillSerializer,
+    ExperienceSerializer,
+    EducationSerializer,
+    AboutSerializer,
+    ContactMessageSerializer,  # ContactMessageSerializer eklendi
+)
 
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+class SkillViewSet(viewsets.ModelViewSet):
+    queryset = Skill.objects.all()
+    serializer_class = SkillSerializer
+
+class ExperienceViewSet(viewsets.ModelViewSet):
+    queryset = Experience.objects.all()
+    serializer_class = ExperienceSerializer
+
+class EducationViewSet(viewsets.ModelViewSet):
+    queryset = Education.objects.all()
+    serializer_class = EducationSerializer
+
+class AboutViewSet(viewsets.ModelViewSet):
+    queryset = About.objects.all()
+    serializer_class = AboutSerializer
+
+class ContactMessageViewSet(viewsets.ModelViewSet):  # ContactMessage ViewSet eklendi
+    queryset = ContactMessage.objects.all()
+    serializer_class = ContactMessageSerializer
+
+# Diğer view fonksiyonları değişmedi
 def home_view(request):
     return render(request, 'main/home.html')
 
-
 def about_view(request):
-    return render(request, 'main/about.html')
-
+    about = About.objects.first()
+    return render(request, 'main/about.html', {'about': about})
 
 def projects_view(request):
-    return render(request, 'main/projects.html')
-
+    projects = Project.objects.all()
+    return render(request, 'main/projects.html', {'projects': projects})
 
 def skills_view(request):
     return render(request, 'main/skills.html')
 
-
 def experience_view(request):
     return render(request, 'main/experience.html')
-
 
 def education_view(request):
     return render(request, 'main/education.html')
 
 def thanks_view(request):
     return render(request, 'main/thanks.html')
-
-
 
 def contact_view(request):
     if request.method == 'POST':

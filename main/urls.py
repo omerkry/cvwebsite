@@ -18,5 +18,5 @@ urlpatterns = [
     path('experience/', experience_view, name='experience'),
     path('education/', education_view, name='education'),
     path('contact/', contact_view, name='contact'),
-path('thanks/', thanks_view, name='thanks'),
+    path('thanks/', thanks_view, name='thanks'),
 ]
