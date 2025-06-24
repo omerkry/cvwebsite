@@ -1,12 +1,13 @@
+import os
 from pathlib import Path
 
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security
-SECRET_KEY = 'django-insecure-ljzle8z$shn2gykwe(4lg(h@7kavcd2a4dg4$!-jo6m%=(xhdg'
-DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-ljzle8z$shn2gykwe(4lg(h@7kavcd2a4dg4$!-jo6m%=(xhdg')
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1 localhost', 'https://cvwebsite-g5b8.onrender.com').split(' ')
 
 # Application definition
 INSTALLED_APPS = [
@@ -82,6 +83,7 @@ USE_TZ = True
 # Static files
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # deploy için gerekli
 
 # Default primary key
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -91,6 +93,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'omercankarayemisoglu@gmail.com'
-EMAIL_HOST_PASSWORD = 'rsou ydps gaip gpes'  # Gmail uygulama şifresi
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'omercankarayemisoglu@gmail.com')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
