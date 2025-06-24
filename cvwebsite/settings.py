@@ -7,7 +7,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-ljzle8z$shn2gykwe(4lg(h@7kavcd2a4dg4$!-jo6m%=(xhdg')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1 localhost', 'https://cvwebsite-g5b8.onrender.com').split(' ')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1 localhost cvwebsite-g5b8.onrender.com').split(' ')
+
+
 
 # Application definition
 INSTALLED_APPS = [
